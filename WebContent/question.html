@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="question.js"></script>
+<!--  
+<script src="authentication.js"></script>
+
+<div ng-app="Authentication">
+	<div ng-controller="AuthCtrl" ng-init="init()"> 
+	</div>
+</div>
+-->
+ <meta charset="UTF-8">
+<title>Please enter your question:</title>
+</head>
+
+<div ng-app="QuesApp">
+  <div class="Ques" ng-controller="QuesControl" >
+  <textarea rows="7" cols="60" placeholder="Type here your question" maxlength="300" ng-model="questionText" required></textarea><br><br>
+  <textarea rows="3" cols="60" placeholder="Type here your topics (optional)" maxlength="50" ng-model="topicsText" ></textarea><br>   
+  <input type="button"  value="Publish Question" ng-click="Asking()" /> <br>	
+    <br>
+  <input ng-init="GetTwentyNewQ()" /> 					    
+	  <table>
+	  <tr ng-repeat="x in Qrecords">
+		<td>{{ 'Id: ' + x.Id }}</td>
+    	<td>{{ 'Question: ' + x.QuestionText }}</td>
+	  	<td>{{ 'Nickname: ' + x.Nickname }}</td>
+    	<td>{{ 'Topics: ' + x.Topics }}</td>
+	  	<td>{{ 'Rating: ' + x.Rating }}</td>
+    	<td>{{ 'Time: ' + (x.Timestamp | date:'dd/MM/yyyy HH:mm:ss') }}</td>
+		<td><textarea rows="6" cols="50" placeholder="Write here your answer" maxlength="300" ng-model="answertext" ></textarea><br> </td>
+    	<td><input type="button"  value="Submit Answer" ng-click="Answering(x.Id,x.Nickname,answertext)" /></td>
+	  </tr>	
+	</table>  				    
+  </div>
+</div>
+    <br>
+<body>
+</body>
+</html>

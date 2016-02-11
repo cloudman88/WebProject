@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<head> <meta charset="UTF-8"> 
+<link rel="stylesheet" href="css/bootstrap.css" >
+<style>
+#liordiv   {
+    	height:250; 
+		max-height:540px; 
+		width:500px; 
+		max-width:630px;	
+</style>
+</head>
+<br><br><br><br>
+<body>
+<div ng-app="loginRegister">
+  <div class="class-login" ng-controller="AdminCtrl" >
+<div class="container">
+  <div id="lior" class="modal-content">
+  	<form name="LogForm"> 
+     <center>
+     <h2>Welcome Back!</h2>
+     <br><br>	
+      </center>
+ 	<center><input name="username" type="text"	id="txtUserAng" placeholder="User Name" ng-model="U_Name" maxlength="10" required /></center>  
+   <center> <span style="color:red" ng-show="LogForm.username.$dirty && LogForm.username.$invalid">
+	<span ng-show="LogForm.username.$invalid">Username is required.</span></center>
+	</span>
+   <center> <input name="password" type="password"	id="txtPWDAng" placeholder="Password" ng-model="U_PWD"  maxlength="8" required/>
+     <br><span style="color:red" ng-show="LogForm.password.$dirty && LogForm.password.$invalid">
+	<span ng-show="LogForm.password.$error.required">Password is required.</span></center>
+	<br>
+    <center><input name ="logbut" type="submit" 	id="login" value="login" ng-click="Login()"  class="btn btn-primary"
+    ng-disabled="((LogForm.username.$invalid) || (LogForm.password.$invalid))"> 
+	   <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#coll">not a member?</button>  
+   </center>
+    <br>
+     </form>
+
+       </div>
+       </div>
+   <div  id="coll" class="collapse" >
+     <div id ="lior" class="modal-dialog">
+     <form name="RegForm" > 
+     <center>
+     <h2>Not a member ? Register Here</h2>
+    <input name="regname" type="text" id="txtRegNameAng" placeholder="User Name" 	ng-model="Reg_Name" 	maxlength="10" required />  
+	<span style="color:red" ng-hide="(!RegForm.regname.$invalid && !RegForm.regname.$dirty)"> 
+	<span ng-show="(RegForm.regname.$invalid)">*</span>
+	</span><br>   
+    <input name="regpass" type="password" id="txtRegPWDrAng" placeholder="Password" 			ng-model="Reg_PWD" 		maxlength="8" required />   	
+    <span style="color:red" ng-hide="(!RegForm.regpass.$invalid && !RegForm.regpass.$dirty)"> 
+	<span ng-show="(RegForm.regpass.$invalid)">*</span>
+	</span><br>   
+    <input name="regnick" type="text" id="txtRegNickAng" placeholder="Nickname"  	ng-model="Reg_Nickname" 	maxlength="20" required/>
+    <span style="color:red" ng-hide="(!RegForm.regnick.$invalid && !RegForm.regnick.$dirty)"> 
+	<span ng-show="(RegForm.regnick.$invalid)">*</span>
+	</span><br>		
+    <textarea rows="6" cols="50" placeholder="Short description (optional)" maxlength="50" ng-model="Reg_Description" ></textarea><br>
+    <input type="text" id="txtRegPhotoAng" placeholder="Photo Link (optional)" 				ng-model="Reg_Photo" /><br>
+	<input type="button" id="Register" value="Register" ng-click="Register()"  class="btn btn-primary" 
+	 ng-disabled="((RegForm.regname.$invalid) || (RegForm.regpass.$invalid) || (RegForm.regnick.$invalid))"/> <br>
+</center>
+	 </form>
+	 	 Registration Result: {{regResult}}
+	</div>
+	</div>
+</div>
+</div>
+
+<script src="loginRegister.js"></script>​
+</body>
+</html>
