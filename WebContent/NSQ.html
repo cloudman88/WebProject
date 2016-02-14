@@ -3,12 +3,17 @@
 <head>
  <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="MainApp.js"></script>
 </head>
 <body>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="question.js"></script>
- <div ng-app="QuesApp">
-  <div class="NSQ" ng-controller="QuesControl"  ng-init="NSQ()" >			    
+ <div ng-app="MainApp">
+  <div ng-controller="QuesControl"  ng-init="NSQ()" >	
+  <br><br><br>		
+  <header></header>    
 	  <table>
 	  <tr ng-repeat="x in Qrecords">
 		<td>{{ 'Id: ' + x.Id }}</td>
@@ -18,16 +23,15 @@
 	  	<td>{{ 'Rating: ' + x.Rating }}</td>
     	<td>{{ 'Time: ' + (x.Timestamp | date:'dd/MM/yyyy HH:mm:ss') }}</td>
 		<td><textarea rows="6" cols="50" placeholder="Write here your answer" maxlength="300" ng-model="answertext" ></textarea><br> </td>
-    	<td><input type="button"  value="Submit Answer" ng-click="Answering(x.Id,x.Nickname,answertext)" /></td>
-	  </tr>	
-	</table>
+	    	<td><input type="button"  value="Submit Answer" ng-click="Answering(x.Id,x.Nickname,answertext);modifyresults(0)" /></td>
+		  </tr>	
+	</table> 
+
+		<center><li> <a href="" ng-click="modifyresults(-1)"><span class="glyphicon glyphicon-menu-left"></span> Previous</a>
+			<a href="" ng-click="modifyresults(1)">   Next<span class="glyphicon glyphicon-menu-right"></span> </a></li></center> 
 	</div>
-</div>
+    </div>  
 </body>
-<!-- <div ng-app="Authentication">
-	<div ng-controller="AuthCtrl" ng-init="init()"> 
-	</div>
-</div> -->
-<script src="authentication.js"></script>
+
 
 </html>

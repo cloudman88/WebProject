@@ -5,38 +5,23 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <head>
-<script src="authentication.js"></script>
+<script src="MainApp.js"></script>
 
  <meta charset="UTF-8">
 <title>Main Application UI</title>
 </head>
 <body>
-<div ng-app="Authentication">
-	<div ng-controller="AuthCtrl" ng-init="init()"> 
-	</div>
-</div>
+<div ng-app="MainApp">
+	<br><br><br><br>
+	{{5+5}}
+	<header></header>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="homepage.html">Home</a></li>
-      <li><a href="question.html">Publish a Question</a></li>
-      <li><a href="NSQ.html">Newliy Submitted Questions</a></li>
-      <li><a href="#">Browse Questions</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-      <li><a href="" ng-click="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-    </ul>
-  </div>
-</nav>
 <br><br><br>
 <p>Ask Question... </p>
 
 	Authentication Result: {{authResult}}
-
+	</div>
+</div>
+<br>
 </body>
 </html>

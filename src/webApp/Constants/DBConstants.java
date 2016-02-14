@@ -51,6 +51,6 @@ public interface DBConstants {
 			   + "NOT ID IS NULL AND NOT EXISTS("
 			   + "SELECT * FROM ANSWERS "
 			   + "WHERE QUESTIONS.ID = QuestionRelated) ORDER BY QUESTIONS.TIMESTAMP DESC "
-			   + "OFFSET ? ROWS FETCH NEXT 20 ROWS ONLY";
+			   + "OFFSET ? ROWS FETCH NEXT 2 ROWS ONLY";
 //	public final String SELECT_USER_BY_NAME_STMT = "SELECT * FROM USER "+ "WHERE Username=?";
 }

@@ -122,12 +122,21 @@ public class QuestionServlet extends HttpServlet {
 			
 			else if(action.equals("NewlySubmittedQuestions"))
 			{
+				int startIndex=0;
+				if(null==request.getParameter("count")){
+					 startIndex=0;
+				}
+				else{
+					startIndex=(Integer.parseInt(request.getParameter("count")));
+				}
+				startIndex=startIndex*2;
 				Collection<Question> questionsResult = new ArrayList<Question>(); 
 				System.out.println("inside nsq!");	
+				System.out.println(startIndex);	
 				PreparedStatement stmt;
 				try {
 					stmt = conn.prepareStatement(DBConstants.SELECT_NEWLY_SUBMITTED_QUESTIONS_STMT);				
-					stmt.setInt(1,0);
+					stmt.setInt(1,startIndex);
 					ResultSet rs = stmt.executeQuery();
 					while (rs.next()){
 						questionsResult.add(new Question(rs.getString(1),rs.getString(2),rs.getString(3),

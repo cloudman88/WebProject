@@ -41,7 +41,7 @@ public class AuthenticationServlet extends HttpServlet {
 		String action = request.getRequestURI();
 		action = action.substring(action.indexOf("AuthenticationServlet") + "AuthenticationServlet".length() + 1);
 		action=action.substring(0, action.length()-1);
-		if(action.equals("Logout") ){
+		if(action.equals("logout") ){
 			try {
 				Context context = new InitialContext();
 			} catch (NamingException e) {
@@ -50,6 +50,7 @@ public class AuthenticationServlet extends HttpServlet {
 			}
 			HttpSession session = request.getSession();
 			session.invalidate();
+			System.out.println("logged out");	
 			response.getWriter().println(1);
 			
 		}
